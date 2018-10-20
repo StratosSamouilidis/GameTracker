@@ -16,5 +16,13 @@ namespace GameTracker
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            PageCall pc = new PageCall();
+            pc.DownloadPageHttpWebRequest();
+            
+           
+        }
     }
 }
