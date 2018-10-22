@@ -7,22 +7,41 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net;
+using System.Net.Http;
+using System.IO;
+using HtmlAgilityPack;
+
 
 namespace GameTracker
 {
     public partial class Form1 : Form
     {
+        DataTable table;
         public Form1()
         {
             InitializeComponent();
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void initTable()
         {
-            PageCall pc = new PageCall();
-            pc.DownloadPageHttpWebRequest();
+            table = new DataTable("gameOffersTable");
+            table.Columns.Add("Name", typeof(string));
+            table.Columns.Add("Price", typeof(double));
             
-           
+            gameOffersData.DataSource = table;
         }
+
+        private async void Form1_Load(object sender, EventArgs e)
+        {
+            initTable();
+            HtmlAgilityPack.HtmlWeb web = new HtmlWeb();          
+            var doc=await Task.Factory.StartNew(()=> web.Load("https://www.gamerankings.com/browse.html")) ;
+
+
+            doc.DocumentNode.SelectNodes("//*[@id=\"main_col\"]/div[1]/div[2]/table/tbody/tr[5]/td[1]/a");
+
+        }
+
+
     }
 }
