@@ -24,6 +24,7 @@ namespace EbayScrapper
             var httpclient = new HttpClient();
             var html = await httpclient.GetStringAsync(url);
 
+           
             var htmlDocument = new HtmlDocument();
             htmlDocument.LoadHtml(html);
 
@@ -31,7 +32,8 @@ namespace EbayScrapper
             var ProductsHtml = htmlDocument.DocumentNode.Descendants("ul")
                 .Where(node => node.GetAttributeValue("id", "")
                 .Equals("ListViewInner")).ToList();
-
+            Console.WriteLine();
+            /*
 
             var ProductListItems = ProductsHtml[0].Descendants("li")
                 .Where(node => node.GetAttributeValue("id", "").Contains("item")).ToList();
@@ -64,7 +66,7 @@ namespace EbayScrapper
 
            
             
-
+    */
         }
     }
 }
