@@ -21,7 +21,7 @@ namespace GameTracker
         {
             InitializeComponent();
 
-            
+
 
 
         }
@@ -34,21 +34,40 @@ namespace GameTracker
             var SearchTerm = SearchBox.Text;
             var fullUrl = SteamUrl + SearchTerm;
             HtmlResultsBox.Text = fullUrl;
-            
-         doc = web.Load(fullUrl);
-         HtmlTextBox.Text = doc.DocumentNode.OuterHtml;
-            var Items = doc.DocumentNode.SelectNodes("//a");
-            foreach (var item in Items) {
-                //HtmlResultsBox.Text+=item.SelectSingleNode("//")
 
+            doc = web.Load(fullUrl);
+            HtmlTextBox.Text = doc.DocumentNode.OuterHtml;
+            var ItemList = doc.DocumentNode.SelectSingleNode("//div[@id='search_result_container']");
+            //var Items = ItemList.SelectNodes("//a").Contains("responsive_search_name_combined");
+            //kappa keepo
+
+
+            foreach (var item in Items)
+            {
+
+                if (item.InnerHtml.Contains("responsive_search_name_combined")) ;
+                HtmlResultsBox.Text += item.InnerHtml;
+
+                /*
+                    var nameNode = item.SelectSingleNode("//div[@class='responsive_search_name_combined']");
+                    var nameDeeperNode = nameNode.SelectSingleNode("//div[@class='col search_name ellipsis']");
+                    var nameSpan = nameDeeperNode.SelectSingleNode("//span[@class='title']");
+                    var Name = nameSpan.InnerText;
+                    HtmlResultsBox.Text += Name;
+
+
+    */
             }
-        //Locate Info
-         
-     
+           
+            //Locate Info
 
 
-         
-                        
+
+
+
+
+
+
 
         }
 
