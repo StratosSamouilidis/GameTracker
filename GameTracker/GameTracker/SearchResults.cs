@@ -39,8 +39,7 @@ namespace GameTracker
             HtmlTextBox.Text = doc.DocumentNode.OuterHtml;
             var ItemList = doc.DocumentNode.SelectSingleNode("//div[@id='search_result_container']");
             //var Items = ItemList.SelectNodes("//a").Contains("responsive_search_name_combined");
-            //kappa keepo
-
+            
 
             foreach (var item in Items)
             {
