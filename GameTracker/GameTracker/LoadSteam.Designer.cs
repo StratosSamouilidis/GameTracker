@@ -1,6 +1,6 @@
 ﻿namespace GameTracker
 {
-    partial class SearchResults
+    partial class LoadSteam
     {
         /// <summary>
         /// Required designer variable.
@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             this.LoadSteamBtn = new System.Windows.Forms.Button();
-            this.gamesDataView = new System.Windows.Forms.DataGridView();
-            this.HtmlTextBox = new System.Windows.Forms.RichTextBox();
             this.HtmlResultsBox = new System.Windows.Forms.RichTextBox();
             this.SearchBox = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.gamesDataView)).BeginInit();
+            this.gamesDataGridView1 = new System.Windows.Forms.DataGridView();
+            this.pageSpinner = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.gamesDataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pageSpinner)).BeginInit();
             this.SuspendLayout();
             // 
             // LoadSteamBtn
@@ -46,27 +47,11 @@
             this.LoadSteamBtn.UseVisualStyleBackColor = true;
             this.LoadSteamBtn.Click += new System.EventHandler(this.LoadSteamBtn_Click);
             // 
-            // gamesDataView
-            // 
-            this.gamesDataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gamesDataView.Location = new System.Drawing.Point(93, 12);
-            this.gamesDataView.Name = "gamesDataView";
-            this.gamesDataView.Size = new System.Drawing.Size(333, 310);
-            this.gamesDataView.TabIndex = 2;
-            // 
-            // HtmlTextBox
-            // 
-            this.HtmlTextBox.Location = new System.Drawing.Point(432, 12);
-            this.HtmlTextBox.Name = "HtmlTextBox";
-            this.HtmlTextBox.Size = new System.Drawing.Size(331, 132);
-            this.HtmlTextBox.TabIndex = 3;
-            this.HtmlTextBox.Text = "";
-            // 
             // HtmlResultsBox
             // 
-            this.HtmlResultsBox.Location = new System.Drawing.Point(432, 150);
+            this.HtmlResultsBox.Location = new System.Drawing.Point(168, 203);
             this.HtmlResultsBox.Name = "HtmlResultsBox";
-            this.HtmlResultsBox.Size = new System.Drawing.Size(496, 251);
+            this.HtmlResultsBox.Size = new System.Drawing.Size(496, 198);
             this.HtmlResultsBox.TabIndex = 4;
             this.HtmlResultsBox.Text = "";
             // 
@@ -77,19 +62,37 @@
             this.SearchBox.Size = new System.Drawing.Size(84, 20);
             this.SearchBox.TabIndex = 5;
             // 
-            // SearchResults
+            // gamesDataGridView1
+            // 
+            this.gamesDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gamesDataGridView1.Location = new System.Drawing.Point(168, 12);
+            this.gamesDataGridView1.Name = "gamesDataGridView1";
+            this.gamesDataGridView1.Size = new System.Drawing.Size(535, 185);
+            this.gamesDataGridView1.TabIndex = 6;
+            // 
+            // pageSpinner
+            // 
+            this.pageSpinner.Location = new System.Drawing.Point(3, 92);
+            this.pageSpinner.Name = "pageSpinner";
+            this.pageSpinner.Size = new System.Drawing.Size(120, 20);
+            this.pageSpinner.TabIndex = 7;
+            this.pageSpinner.ValueChanged += new System.EventHandler(this.pageSpinner_ValueChanged);
+            // 
+            // LoadSteam
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(979, 566);
+            this.Controls.Add(this.pageSpinner);
+            this.Controls.Add(this.gamesDataGridView1);
             this.Controls.Add(this.SearchBox);
             this.Controls.Add(this.HtmlResultsBox);
-            this.Controls.Add(this.HtmlTextBox);
-            this.Controls.Add(this.gamesDataView);
             this.Controls.Add(this.LoadSteamBtn);
-            this.Name = "SearchResults";
-            this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.gamesDataView)).EndInit();
+            this.Name = "LoadSteam";
+            this.Text = "Steam";
+            ((System.ComponentModel.ISupportInitialize)(this.gamesDataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pageSpinner)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -97,10 +100,10 @@
 
         #endregion
         private System.Windows.Forms.Button LoadSteamBtn;
-        private System.Windows.Forms.DataGridView gamesDataView;
-        private System.Windows.Forms.RichTextBox HtmlTextBox;
         private System.Windows.Forms.RichTextBox HtmlResultsBox;
         private System.Windows.Forms.TextBox SearchBox;
+        private System.Windows.Forms.DataGridView gamesDataGridView1;
+        private System.Windows.Forms.NumericUpDown pageSpinner;
     }
 }
 
