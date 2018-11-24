@@ -159,7 +159,7 @@ namespace GameTracker
             }
             else
             {
-                HtmlResultsBox.Text += "No Result where found ";
+                HtmlResultsBox.Text += "No Result where found kappa ";
             }
 
         }
