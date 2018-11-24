@@ -1,6 +1,6 @@
 ﻿namespace GameTracker
 {
-    partial class LoadSteam
+    partial class LoadResults
     {
         /// <summary>
         /// Required designer variable.
@@ -31,10 +31,13 @@
             this.LoadSteamBtn = new System.Windows.Forms.Button();
             this.HtmlResultsBox = new System.Windows.Forms.RichTextBox();
             this.SearchBox = new System.Windows.Forms.TextBox();
-            this.gamesDataGridView1 = new System.Windows.Forms.DataGridView();
+            this.SteamGamesDataGridView1 = new System.Windows.Forms.DataGridView();
             this.pageSpinner = new System.Windows.Forms.NumericUpDown();
-            ((System.ComponentModel.ISupportInitialize)(this.gamesDataGridView1)).BeginInit();
+            this.LoadIGbtn = new System.Windows.Forms.Button();
+            this.igDataGridView = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.SteamGamesDataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pageSpinner)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.igDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // LoadSteamBtn
@@ -49,9 +52,9 @@
             // 
             // HtmlResultsBox
             // 
-            this.HtmlResultsBox.Location = new System.Drawing.Point(168, 203);
+            this.HtmlResultsBox.Location = new System.Drawing.Point(168, 314);
             this.HtmlResultsBox.Name = "HtmlResultsBox";
-            this.HtmlResultsBox.Size = new System.Drawing.Size(496, 198);
+            this.HtmlResultsBox.Size = new System.Drawing.Size(367, 198);
             this.HtmlResultsBox.TabIndex = 4;
             this.HtmlResultsBox.Text = "";
             // 
@@ -62,13 +65,13 @@
             this.SearchBox.Size = new System.Drawing.Size(84, 20);
             this.SearchBox.TabIndex = 5;
             // 
-            // gamesDataGridView1
+            // SteamGamesDataGridView1
             // 
-            this.gamesDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gamesDataGridView1.Location = new System.Drawing.Point(168, 12);
-            this.gamesDataGridView1.Name = "gamesDataGridView1";
-            this.gamesDataGridView1.Size = new System.Drawing.Size(535, 185);
-            this.gamesDataGridView1.TabIndex = 6;
+            this.SteamGamesDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.SteamGamesDataGridView1.Location = new System.Drawing.Point(168, 0);
+            this.SteamGamesDataGridView1.Name = "SteamGamesDataGridView1";
+            this.SteamGamesDataGridView1.Size = new System.Drawing.Size(376, 260);
+            this.SteamGamesDataGridView1.TabIndex = 6;
             // 
             // pageSpinner
             // 
@@ -78,21 +81,42 @@
             this.pageSpinner.TabIndex = 7;
             this.pageSpinner.ValueChanged += new System.EventHandler(this.pageSpinner_ValueChanged);
             // 
+            // LoadIGbtn
+            // 
+            this.LoadIGbtn.Location = new System.Drawing.Point(3, 42);
+            this.LoadIGbtn.Name = "LoadIGbtn";
+            this.LoadIGbtn.Size = new System.Drawing.Size(75, 23);
+            this.LoadIGbtn.TabIndex = 8;
+            this.LoadIGbtn.Text = "Load IG";
+            this.LoadIGbtn.UseVisualStyleBackColor = true;
+            this.LoadIGbtn.Click += new System.EventHandler(this.LoadIGbtn_Click);
+            // 
+            // igDataGridView
+            // 
+            this.igDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.igDataGridView.Location = new System.Drawing.Point(550, 0);
+            this.igDataGridView.Name = "igDataGridView";
+            this.igDataGridView.Size = new System.Drawing.Size(386, 260);
+            this.igDataGridView.TabIndex = 9;
+            // 
             // LoadSteam
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(979, 566);
+            this.Controls.Add(this.igDataGridView);
+            this.Controls.Add(this.LoadIGbtn);
             this.Controls.Add(this.pageSpinner);
-            this.Controls.Add(this.gamesDataGridView1);
+            this.Controls.Add(this.SteamGamesDataGridView1);
             this.Controls.Add(this.SearchBox);
             this.Controls.Add(this.HtmlResultsBox);
             this.Controls.Add(this.LoadSteamBtn);
             this.Name = "LoadSteam";
             this.Text = "Steam";
-            ((System.ComponentModel.ISupportInitialize)(this.gamesDataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SteamGamesDataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pageSpinner)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.igDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -102,8 +126,10 @@
         private System.Windows.Forms.Button LoadSteamBtn;
         private System.Windows.Forms.RichTextBox HtmlResultsBox;
         private System.Windows.Forms.TextBox SearchBox;
-        private System.Windows.Forms.DataGridView gamesDataGridView1;
+        private System.Windows.Forms.DataGridView SteamGamesDataGridView1;
         private System.Windows.Forms.NumericUpDown pageSpinner;
+        private System.Windows.Forms.Button LoadIGbtn;
+        private System.Windows.Forms.DataGridView igDataGridView;
     }
 }
 
