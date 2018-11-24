@@ -17,14 +17,14 @@ namespace GameTracker
 {
     public partial class LoadResults : Form
     {
-       public string urlVar;
         public LoadResults()
         {
             InitializeComponent();
 
-        }
 
-        
+
+
+        }
         private string constructSteamUrl() {
             //construct url
             var SteamUrl = "https://store.steampowered.com/search/?term=";
@@ -173,18 +173,6 @@ namespace GameTracker
             }
         }
 
-        private void SteamGamesDataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-           this.urlVar = constructSteamUrl();                
-            selectedItemForm form = new selectedItemForm(this);
-            form.Show();
-        }
-
-        private void igDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            this.urlVar = constructIgUrl();
-            selectedItemForm form = new selectedItemForm(this);
-            form.Show();
-        }
+        
     }
 }
