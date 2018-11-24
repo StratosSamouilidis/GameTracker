@@ -16,7 +16,7 @@ namespace GameTracker
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoadResults());
+            Application.Run(new Register());
         }
     }
 }
