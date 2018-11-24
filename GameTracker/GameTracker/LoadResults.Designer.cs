@@ -72,7 +72,6 @@
             this.SteamGamesDataGridView1.Name = "SteamGamesDataGridView1";
             this.SteamGamesDataGridView1.Size = new System.Drawing.Size(376, 260);
             this.SteamGamesDataGridView1.TabIndex = 6;
-            this.SteamGamesDataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SteamGamesDataGridView1_CellDoubleClick);
             // 
             // pageSpinner
             // 
@@ -99,9 +98,8 @@
             this.igDataGridView.Name = "igDataGridView";
             this.igDataGridView.Size = new System.Drawing.Size(386, 260);
             this.igDataGridView.TabIndex = 9;
-            this.igDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.igDataGridView_CellDoubleClick);
             // 
-            // LoadResults
+            // LoadSteam
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -114,8 +112,8 @@
             this.Controls.Add(this.SearchBox);
             this.Controls.Add(this.HtmlResultsBox);
             this.Controls.Add(this.LoadSteamBtn);
-            this.Name = "LoadResults";
-            this.Text = "Track Games";
+            this.Name = "LoadSteam";
+            this.Text = "Steam";
             ((System.ComponentModel.ISupportInitialize)(this.SteamGamesDataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pageSpinner)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.igDataGridView)).EndInit();
