@@ -43,7 +43,9 @@
                 </UpdateCommand>
               </DbSource>
             </MainSource>
-            <Mappings />
+            <Mappings>
+              <Mapping SourceColumn="Games" DataSetColumn="Games" />
+            </Mappings>
             <Sources />
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="UserTableAdapter" GeneratorDataComponentClassName="UserTableAdapter" Name="User" UserDataComponentName="UserTableAdapter">
@@ -88,7 +90,10 @@
                 </UpdateCommand>
               </DbSource>
             </MainSource>
-            <Mappings />
+            <Mappings>
+              <Mapping SourceColumn="UserName" DataSetColumn="UserName" />
+              <Mapping SourceColumn="Password" DataSetColumn="Password" />
+            </Mappings>
             <Sources />
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="User_Type_of_gamesTableAdapter" GeneratorDataComponentClassName="User_Type_of_gamesTableAdapter" Name="User_Type_of_games" UserDataComponentName="User_Type_of_gamesTableAdapter">
@@ -133,7 +138,10 @@
                 </UpdateCommand>
               </DbSource>
             </MainSource>
-            <Mappings />
+            <Mappings>
+              <Mapping SourceColumn="UserName" DataSetColumn="UserName" />
+              <Mapping SourceColumn="GameType" DataSetColumn="GameType" />
+            </Mappings>
             <Sources />
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="WatchListTableAdapter" GeneratorDataComponentClassName="WatchListTableAdapter" Name="WatchList" UserDataComponentName="WatchListTableAdapter">
@@ -178,7 +186,10 @@
                 </UpdateCommand>
               </DbSource>
             </MainSource>
-            <Mappings />
+            <Mappings>
+              <Mapping SourceColumn="GameTitle" DataSetColumn="GameTitle" />
+              <Mapping SourceColumn="UserName" DataSetColumn="UserName" />
+            </Mappings>
             <Sources />
           </TableAdapter>
         </Tables>
@@ -191,21 +202,95 @@
       <xs:choice minOccurs="0" maxOccurs="unbounded">
         <xs:element name="Type_of_games" msprop:Generator_TableClassName="Type_of_gamesDataTable" msprop:Generator_TableVarName="tableType_of_games" msprop:Generator_TablePropName="Type_of_games" msprop:Generator_RowDeletingName="Type_of_gamesRowDeleting" msprop:Generator_RowChangingName="Type_of_gamesRowChanging" msprop:Generator_RowEvHandlerName="Type_of_gamesRowChangeEventHandler" msprop:Generator_RowDeletedName="Type_of_gamesRowDeleted" msprop:Generator_UserTableName="Type_of_games" msprop:Generator_RowChangedName="Type_of_gamesRowChanged" msprop:Generator_RowEvArgName="Type_of_gamesRowChangeEvent" msprop:Generator_RowClassName="Type_of_gamesRow">
           <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Games" msprop:Generator_ColumnVarNameInTable="columnGames" msprop:Generator_ColumnPropNameInRow="Games" msprop:Generator_ColumnPropNameInTable="GamesColumn" msprop:Generator_UserColumnName="Games">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
           </xs:complexType>
         </xs:element>
         <xs:element name="User" msprop:Generator_TableClassName="UserDataTable" msprop:Generator_TableVarName="tableUser" msprop:Generator_TablePropName="User" msprop:Generator_RowDeletingName="UserRowDeleting" msprop:Generator_RowChangingName="UserRowChanging" msprop:Generator_RowEvHandlerName="UserRowChangeEventHandler" msprop:Generator_RowDeletedName="UserRowDeleted" msprop:Generator_UserTableName="User" msprop:Generator_RowChangedName="UserRowChanged" msprop:Generator_RowEvArgName="UserRowChangeEvent" msprop:Generator_RowClassName="UserRow">
           <xs:complexType>
+            <xs:sequence>
+              <xs:element name="UserName" msprop:Generator_ColumnVarNameInTable="columnUserName" msprop:Generator_ColumnPropNameInRow="UserName" msprop:Generator_ColumnPropNameInTable="UserNameColumn" msprop:Generator_UserColumnName="UserName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Password" msprop:Generator_ColumnVarNameInTable="columnPassword" msprop:Generator_ColumnPropNameInRow="Password" msprop:Generator_ColumnPropNameInTable="PasswordColumn" msprop:Generator_UserColumnName="Password" type="xs:int" minOccurs="0" />
+            </xs:sequence>
           </xs:complexType>
         </xs:element>
         <xs:element name="User_Type_of_games" msprop:Generator_TableClassName="User_Type_of_gamesDataTable" msprop:Generator_TableVarName="tableUser_Type_of_games" msprop:Generator_TablePropName="User_Type_of_games" msprop:Generator_RowDeletingName="User_Type_of_gamesRowDeleting" msprop:Generator_RowChangingName="User_Type_of_gamesRowChanging" msprop:Generator_RowEvHandlerName="User_Type_of_gamesRowChangeEventHandler" msprop:Generator_RowDeletedName="User_Type_of_gamesRowDeleted" msprop:Generator_UserTableName="User_Type_of_games" msprop:Generator_RowChangedName="User_Type_of_gamesRowChanged" msprop:Generator_RowEvArgName="User_Type_of_gamesRowChangeEvent" msprop:Generator_RowClassName="User_Type_of_gamesRow">
           <xs:complexType>
+            <xs:sequence>
+              <xs:element name="UserName" msprop:Generator_ColumnVarNameInTable="columnUserName" msprop:Generator_ColumnPropNameInRow="UserName" msprop:Generator_ColumnPropNameInTable="UserNameColumn" msprop:Generator_UserColumnName="UserName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="GameType" msprop:Generator_ColumnVarNameInTable="columnGameType" msprop:Generator_ColumnPropNameInRow="GameType" msprop:Generator_ColumnPropNameInTable="GameTypeColumn" msprop:Generator_UserColumnName="GameType" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
           </xs:complexType>
         </xs:element>
         <xs:element name="WatchList" msprop:Generator_TableClassName="WatchListDataTable" msprop:Generator_TableVarName="tableWatchList" msprop:Generator_TablePropName="WatchList" msprop:Generator_RowDeletingName="WatchListRowDeleting" msprop:Generator_RowChangingName="WatchListRowChanging" msprop:Generator_RowEvHandlerName="WatchListRowChangeEventHandler" msprop:Generator_RowDeletedName="WatchListRowDeleted" msprop:Generator_UserTableName="WatchList" msprop:Generator_RowChangedName="WatchListRowChanged" msprop:Generator_RowEvArgName="WatchListRowChangeEvent" msprop:Generator_RowClassName="WatchListRow">
           <xs:complexType>
+            <xs:sequence>
+              <xs:element name="GameTitle" msprop:Generator_ColumnVarNameInTable="columnGameTitle" msprop:Generator_ColumnPropNameInRow="GameTitle" msprop:Generator_ColumnPropNameInTable="GameTitleColumn" msprop:Generator_UserColumnName="GameTitle" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UserName" msprop:Generator_ColumnVarNameInTable="columnUserName" msprop:Generator_ColumnPropNameInRow="UserName" msprop:Generator_ColumnPropNameInTable="UserNameColumn" msprop:Generator_UserColumnName="UserName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
           </xs:complexType>
         </xs:element>
       </xs:choice>
     </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Type_of_games" />
+      <xs:field xpath="mstns:Games" />
+    </xs:unique>
+    <xs:unique name="User_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:User" />
+      <xs:field xpath="mstns:UserName" />
+    </xs:unique>
+    <xs:unique name="User_Type_of_games_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:User_Type_of_games" />
+      <xs:field xpath="mstns:UserName" />
+    </xs:unique>
+    <xs:unique name="WatchList_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:WatchList" />
+      <xs:field xpath="mstns:UserName" />
+    </xs:unique>
   </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="Type_of_gamesUser_Type_of_games" msdata:parent="Type_of_games" msdata:child="User_Type_of_games" msdata:parentkey="Games" msdata:childkey="GameType" msprop:Generator_UserChildTable="User_Type_of_games" msprop:Generator_ChildPropName="GetUser_Type_of_gamesRows" msprop:Generator_UserRelationName="Type_of_gamesUser_Type_of_games" msprop:Generator_ParentPropName="Type_of_gamesRow" msprop:Generator_RelationVarName="relationType_of_gamesUser_Type_of_games" msprop:Generator_UserParentTable="Type_of_games" />
+      <msdata:Relationship name="UserUser_Type_of_games" msdata:parent="User" msdata:child="User_Type_of_games" msdata:parentkey="UserName" msdata:childkey="UserName" msprop:Generator_UserChildTable="User_Type_of_games" msprop:Generator_ChildPropName="GetUser_Type_of_gamesRows" msprop:Generator_UserRelationName="UserUser_Type_of_games" msprop:Generator_ParentPropName="UserRow" msprop:Generator_RelationVarName="relationUserUser_Type_of_games" msprop:Generator_UserParentTable="User" />
+      <msdata:Relationship name="UserWatchList" msdata:parent="User" msdata:child="WatchList" msdata:parentkey="UserName" msdata:childkey="UserName" msprop:Generator_UserChildTable="WatchList" msprop:Generator_ChildPropName="GetWatchListRows" msprop:Generator_UserRelationName="UserWatchList" msprop:Generator_ParentPropName="UserRow" msprop:Generator_RelationVarName="relationUserWatchList" msprop:Generator_UserParentTable="User" />
+    </xs:appinfo>
+  </xs:annotation>
 </xs:schema>

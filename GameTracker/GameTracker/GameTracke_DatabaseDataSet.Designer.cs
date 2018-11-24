@@ -32,6 +32,12 @@ namespace GameTracker {
         
         private WatchListDataTable tableWatchList;
         
+        private global::System.Data.DataRelation relationType_of_gamesUser_Type_of_games;
+        
+        private global::System.Data.DataRelation relationUserUser_Type_of_games;
+        
+        private global::System.Data.DataRelation relationUserWatchList;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -266,6 +272,9 @@ namespace GameTracker {
                     this.tableWatchList.InitVars();
                 }
             }
+            this.relationType_of_gamesUser_Type_of_games = this.Relations["Type_of_gamesUser_Type_of_games"];
+            this.relationUserUser_Type_of_games = this.Relations["UserUser_Type_of_games"];
+            this.relationUserWatchList = this.Relations["UserWatchList"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -284,6 +293,18 @@ namespace GameTracker {
             base.Tables.Add(this.tableUser_Type_of_games);
             this.tableWatchList = new WatchListDataTable();
             base.Tables.Add(this.tableWatchList);
+            this.relationType_of_gamesUser_Type_of_games = new global::System.Data.DataRelation("Type_of_gamesUser_Type_of_games", new global::System.Data.DataColumn[] {
+                        this.tableType_of_games.GamesColumn}, new global::System.Data.DataColumn[] {
+                        this.tableUser_Type_of_games.GameTypeColumn}, false);
+            this.Relations.Add(this.relationType_of_gamesUser_Type_of_games);
+            this.relationUserUser_Type_of_games = new global::System.Data.DataRelation("UserUser_Type_of_games", new global::System.Data.DataColumn[] {
+                        this.tableUser.UserNameColumn}, new global::System.Data.DataColumn[] {
+                        this.tableUser_Type_of_games.UserNameColumn}, false);
+            this.Relations.Add(this.relationUserUser_Type_of_games);
+            this.relationUserWatchList = new global::System.Data.DataRelation("UserWatchList", new global::System.Data.DataColumn[] {
+                        this.tableUser.UserNameColumn}, new global::System.Data.DataColumn[] {
+                        this.tableWatchList.UserNameColumn}, false);
+            this.Relations.Add(this.relationUserWatchList);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -384,6 +405,8 @@ namespace GameTracker {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class Type_of_gamesDataTable : global::System.Data.TypedTableBase<Type_of_gamesRow> {
             
+            private global::System.Data.DataColumn columnGames;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public Type_of_gamesDataTable() {
@@ -415,6 +438,14 @@ namespace GameTracker {
             protected Type_of_gamesDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn GamesColumn {
+                get {
+                    return this.columnGames;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -454,12 +485,20 @@ namespace GameTracker {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public Type_of_gamesRow AddType_of_gamesRow() {
+            public Type_of_gamesRow AddType_of_gamesRow(string Games) {
                 Type_of_gamesRow rowType_of_gamesRow = ((Type_of_gamesRow)(this.NewRow()));
-                object[] columnValuesArray = new object[0];
+                object[] columnValuesArray = new object[] {
+                        Games};
                 rowType_of_gamesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowType_of_gamesRow);
                 return rowType_of_gamesRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public Type_of_gamesRow FindByGames(string Games) {
+                return ((Type_of_gamesRow)(this.Rows.Find(new object[] {
+                            Games})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -479,11 +518,19 @@ namespace GameTracker {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             internal void InitVars() {
+                this.columnGames = base.Columns["Games"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             private void InitClass() {
+                this.columnGames = new global::System.Data.DataColumn("Games", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGames);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnGames}, true));
+                this.columnGames.AllowDBNull = false;
+                this.columnGames.Unique = true;
+                this.columnGames.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -617,6 +664,10 @@ namespace GameTracker {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class UserDataTable : global::System.Data.TypedTableBase<UserRow> {
             
+            private global::System.Data.DataColumn columnUserName;
+            
+            private global::System.Data.DataColumn columnPassword;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public UserDataTable() {
@@ -648,6 +699,22 @@ namespace GameTracker {
             protected UserDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn UserNameColumn {
+                get {
+                    return this.columnUserName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn PasswordColumn {
+                get {
+                    return this.columnPassword;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -687,12 +754,21 @@ namespace GameTracker {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public UserRow AddUserRow() {
+            public UserRow AddUserRow(string UserName, int Password) {
                 UserRow rowUserRow = ((UserRow)(this.NewRow()));
-                object[] columnValuesArray = new object[0];
+                object[] columnValuesArray = new object[] {
+                        UserName,
+                        Password};
                 rowUserRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowUserRow);
                 return rowUserRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public UserRow FindByUserName(string UserName) {
+                return ((UserRow)(this.Rows.Find(new object[] {
+                            UserName})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -712,11 +788,22 @@ namespace GameTracker {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             internal void InitVars() {
+                this.columnUserName = base.Columns["UserName"];
+                this.columnPassword = base.Columns["Password"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             private void InitClass() {
+                this.columnUserName = new global::System.Data.DataColumn("UserName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUserName);
+                this.columnPassword = new global::System.Data.DataColumn("Password", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPassword);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnUserName}, true));
+                this.columnUserName.AllowDBNull = false;
+                this.columnUserName.Unique = true;
+                this.columnUserName.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -850,6 +937,10 @@ namespace GameTracker {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class User_Type_of_gamesDataTable : global::System.Data.TypedTableBase<User_Type_of_gamesRow> {
             
+            private global::System.Data.DataColumn columnUserName;
+            
+            private global::System.Data.DataColumn columnGameType;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public User_Type_of_gamesDataTable() {
@@ -881,6 +972,22 @@ namespace GameTracker {
             protected User_Type_of_gamesDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn UserNameColumn {
+                get {
+                    return this.columnUserName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn GameTypeColumn {
+                get {
+                    return this.columnGameType;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -920,12 +1027,27 @@ namespace GameTracker {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public User_Type_of_gamesRow AddUser_Type_of_gamesRow() {
+            public User_Type_of_gamesRow AddUser_Type_of_gamesRow(UserRow parentUserRowByUserUser_Type_of_games, Type_of_gamesRow parentType_of_gamesRowByType_of_gamesUser_Type_of_games) {
                 User_Type_of_gamesRow rowUser_Type_of_gamesRow = ((User_Type_of_gamesRow)(this.NewRow()));
-                object[] columnValuesArray = new object[0];
+                object[] columnValuesArray = new object[] {
+                        null,
+                        null};
+                if ((parentUserRowByUserUser_Type_of_games != null)) {
+                    columnValuesArray[0] = parentUserRowByUserUser_Type_of_games[0];
+                }
+                if ((parentType_of_gamesRowByType_of_gamesUser_Type_of_games != null)) {
+                    columnValuesArray[1] = parentType_of_gamesRowByType_of_gamesUser_Type_of_games[0];
+                }
                 rowUser_Type_of_gamesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowUser_Type_of_gamesRow);
                 return rowUser_Type_of_gamesRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public User_Type_of_gamesRow FindByUserName(string UserName) {
+                return ((User_Type_of_gamesRow)(this.Rows.Find(new object[] {
+                            UserName})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -945,11 +1067,23 @@ namespace GameTracker {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             internal void InitVars() {
+                this.columnUserName = base.Columns["UserName"];
+                this.columnGameType = base.Columns["GameType"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             private void InitClass() {
+                this.columnUserName = new global::System.Data.DataColumn("UserName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUserName);
+                this.columnGameType = new global::System.Data.DataColumn("GameType", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGameType);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnUserName}, true));
+                this.columnUserName.AllowDBNull = false;
+                this.columnUserName.Unique = true;
+                this.columnUserName.MaxLength = 255;
+                this.columnGameType.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1083,6 +1217,10 @@ namespace GameTracker {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class WatchListDataTable : global::System.Data.TypedTableBase<WatchListRow> {
             
+            private global::System.Data.DataColumn columnGameTitle;
+            
+            private global::System.Data.DataColumn columnUserName;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public WatchListDataTable() {
@@ -1114,6 +1252,22 @@ namespace GameTracker {
             protected WatchListDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn GameTitleColumn {
+                get {
+                    return this.columnGameTitle;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn UserNameColumn {
+                get {
+                    return this.columnUserName;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1153,12 +1307,24 @@ namespace GameTracker {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public WatchListRow AddWatchListRow() {
+            public WatchListRow AddWatchListRow(string GameTitle, UserRow parentUserRowByUserWatchList) {
                 WatchListRow rowWatchListRow = ((WatchListRow)(this.NewRow()));
-                object[] columnValuesArray = new object[0];
+                object[] columnValuesArray = new object[] {
+                        GameTitle,
+                        null};
+                if ((parentUserRowByUserWatchList != null)) {
+                    columnValuesArray[1] = parentUserRowByUserWatchList[0];
+                }
                 rowWatchListRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowWatchListRow);
                 return rowWatchListRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public WatchListRow FindByUserName(string UserName) {
+                return ((WatchListRow)(this.Rows.Find(new object[] {
+                            UserName})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1178,11 +1344,23 @@ namespace GameTracker {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             internal void InitVars() {
+                this.columnGameTitle = base.Columns["GameTitle"];
+                this.columnUserName = base.Columns["UserName"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             private void InitClass() {
+                this.columnGameTitle = new global::System.Data.DataColumn("GameTitle", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGameTitle);
+                this.columnUserName = new global::System.Data.DataColumn("UserName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUserName);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnUserName}, true));
+                this.columnGameTitle.MaxLength = 255;
+                this.columnUserName.AllowDBNull = false;
+                this.columnUserName.Unique = true;
+                this.columnUserName.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1322,6 +1500,28 @@ namespace GameTracker {
                     base(rb) {
                 this.tableType_of_games = ((Type_of_gamesDataTable)(this.Table));
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Games {
+                get {
+                    return ((string)(this[this.tableType_of_games.GamesColumn]));
+                }
+                set {
+                    this[this.tableType_of_games.GamesColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public User_Type_of_gamesRow[] GetUser_Type_of_gamesRows() {
+                if ((this.Table.ChildRelations["Type_of_gamesUser_Type_of_games"] == null)) {
+                    return new User_Type_of_gamesRow[0];
+                }
+                else {
+                    return ((User_Type_of_gamesRow[])(base.GetChildRows(this.Table.ChildRelations["Type_of_gamesUser_Type_of_games"])));
+                }
+            }
         }
         
         /// <summary>
@@ -1336,6 +1536,67 @@ namespace GameTracker {
             internal UserRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
                 this.tableUser = ((UserDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string UserName {
+                get {
+                    return ((string)(this[this.tableUser.UserNameColumn]));
+                }
+                set {
+                    this[this.tableUser.UserNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int Password {
+                get {
+                    try {
+                        return ((int)(this[this.tableUser.PasswordColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Password\' in table \'User\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUser.PasswordColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsPasswordNull() {
+                return this.IsNull(this.tableUser.PasswordColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetPasswordNull() {
+                this[this.tableUser.PasswordColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public User_Type_of_gamesRow[] GetUser_Type_of_gamesRows() {
+                if ((this.Table.ChildRelations["UserUser_Type_of_games"] == null)) {
+                    return new User_Type_of_gamesRow[0];
+                }
+                else {
+                    return ((User_Type_of_gamesRow[])(base.GetChildRows(this.Table.ChildRelations["UserUser_Type_of_games"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public WatchListRow[] GetWatchListRows() {
+                if ((this.Table.ChildRelations["UserWatchList"] == null)) {
+                    return new WatchListRow[0];
+                }
+                else {
+                    return ((WatchListRow[])(base.GetChildRows(this.Table.ChildRelations["UserWatchList"])));
+                }
             }
         }
         
@@ -1352,6 +1613,67 @@ namespace GameTracker {
                     base(rb) {
                 this.tableUser_Type_of_games = ((User_Type_of_gamesDataTable)(this.Table));
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string UserName {
+                get {
+                    return ((string)(this[this.tableUser_Type_of_games.UserNameColumn]));
+                }
+                set {
+                    this[this.tableUser_Type_of_games.UserNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string GameType {
+                get {
+                    try {
+                        return ((string)(this[this.tableUser_Type_of_games.GameTypeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'GameType\' in table \'User_Type_of_games\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUser_Type_of_games.GameTypeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public Type_of_gamesRow Type_of_gamesRow {
+                get {
+                    return ((Type_of_gamesRow)(this.GetParentRow(this.Table.ParentRelations["Type_of_gamesUser_Type_of_games"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["Type_of_gamesUser_Type_of_games"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public UserRow UserRow {
+                get {
+                    return ((UserRow)(this.GetParentRow(this.Table.ParentRelations["UserUser_Type_of_games"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["UserUser_Type_of_games"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsGameTypeNull() {
+                return this.IsNull(this.tableUser_Type_of_games.GameTypeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetGameTypeNull() {
+                this[this.tableUser_Type_of_games.GameTypeColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -1366,6 +1688,56 @@ namespace GameTracker {
             internal WatchListRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
                 this.tableWatchList = ((WatchListDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string GameTitle {
+                get {
+                    try {
+                        return ((string)(this[this.tableWatchList.GameTitleColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'GameTitle\' in table \'WatchList\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWatchList.GameTitleColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string UserName {
+                get {
+                    return ((string)(this[this.tableWatchList.UserNameColumn]));
+                }
+                set {
+                    this[this.tableWatchList.UserNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public UserRow UserRow {
+                get {
+                    return ((UserRow)(this.GetParentRow(this.Table.ParentRelations["UserWatchList"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["UserWatchList"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsGameTitleNull() {
+                return this.IsNull(this.tableWatchList.GameTitleColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetGameTitleNull() {
+                this[this.tableWatchList.GameTitleColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1627,6 +1999,11 @@ namespace GameTracker.GameTracke_DatabaseDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitAdapter() {
             this._adapter = new global::System.Data.OleDb.OleDbDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "Type_of_games";
+            tableMapping.ColumnMappings.Add("Games", "Games");
+            this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
             this._adapter.DeleteCommand.CommandText = "DELETE FROM `Type_of_games` WHERE ((`Games` = ?))";
@@ -1801,6 +2178,14 @@ namespace GameTracker.GameTracke_DatabaseDataSetTableAdapters {
                 }
             }
         }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string Original_Games) {
+            return this.Update(Original_Games, Original_Games);
+        }
     }
     
     /// <summary>
@@ -1921,6 +2306,12 @@ namespace GameTracker.GameTracke_DatabaseDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitAdapter() {
             this._adapter = new global::System.Data.OleDb.OleDbDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "User";
+            tableMapping.ColumnMappings.Add("UserName", "UserName");
+            tableMapping.ColumnMappings.Add("Password", "Password");
+            this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
             this._adapter.DeleteCommand.CommandText = "DELETE FROM `User` WHERE ((`UserName` = ?) AND ((? = 1 AND `Password` IS NULL) OR" +
@@ -2131,6 +2522,14 @@ namespace GameTracker.GameTracke_DatabaseDataSetTableAdapters {
                 }
             }
         }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(global::System.Nullable<int> Password, string Original_UserName, global::System.Nullable<int> Original_Password) {
+            return this.Update(Original_UserName, Password, Original_UserName, Original_Password);
+        }
     }
     
     /// <summary>
@@ -2251,6 +2650,12 @@ namespace GameTracker.GameTracke_DatabaseDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitAdapter() {
             this._adapter = new global::System.Data.OleDb.OleDbDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "User_Type_of_games";
+            tableMapping.ColumnMappings.Add("UserName", "UserName");
+            tableMapping.ColumnMappings.Add("GameType", "GameType");
+            this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
             this._adapter.DeleteCommand.CommandText = "DELETE FROM `User_Type_of_games` WHERE ((`UserName` = ?) AND ((? = 1 AND `GameTyp" +
@@ -2461,6 +2866,14 @@ namespace GameTracker.GameTracke_DatabaseDataSetTableAdapters {
                 }
             }
         }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string GameType, string Original_UserName, string Original_GameType) {
+            return this.Update(Original_UserName, GameType, Original_UserName, Original_GameType);
+        }
     }
     
     /// <summary>
@@ -2581,6 +2994,12 @@ namespace GameTracker.GameTracke_DatabaseDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitAdapter() {
             this._adapter = new global::System.Data.OleDb.OleDbDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "WatchList";
+            tableMapping.ColumnMappings.Add("GameTitle", "GameTitle");
+            tableMapping.ColumnMappings.Add("UserName", "UserName");
+            this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
             this._adapter.DeleteCommand.CommandText = "DELETE FROM `WatchList` WHERE (((? = 1 AND `GameTitle` IS NULL) OR (`GameTitle` =" +
@@ -2790,6 +3209,14 @@ namespace GameTracker.GameTracke_DatabaseDataSetTableAdapters {
                     this.Adapter.UpdateCommand.Connection.Close();
                 }
             }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string GameTitle, string Original_GameTitle, string Original_UserName) {
+            return this.Update(GameTitle, Original_UserName, Original_GameTitle, Original_UserName);
         }
     }
     
