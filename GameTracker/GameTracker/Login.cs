@@ -34,8 +34,7 @@ namespace GameTracker
                 lr.Show();
                 this.Hide();
 
-                Preferences pref = new Preferences();
-                pref.Show();
+                
 
             }
             else
