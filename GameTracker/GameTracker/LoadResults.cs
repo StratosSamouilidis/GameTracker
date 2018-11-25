@@ -18,12 +18,16 @@ namespace GameTracker
     public partial class LoadResults : Form
     {
        public string urlVar;
-        public LoadResults()
+        Login loginForm = new Login();
+        
+        public LoadResults(Login incomingForm)
         {
+            loginForm = incomingForm;
             InitializeComponent();
 
+            welcomeLabel.Text ="Welcome Mr " + loginForm.username;
         }
-
+       
         
         private string constructSteamUrl() {
             //construct url
@@ -39,7 +43,6 @@ namespace GameTracker
 
             return fullUrl;
         }
-
         private string constructIgUrl()
         {
             var IgUrl = "https://www.instant-gaming.com/en/search/?q=";
@@ -163,7 +166,6 @@ namespace GameTracker
             }
 
         }
-
         private void pageSpinner_ValueChanged(object sender, EventArgs e)
         {
             if (pageSpinner.Value > 0) {
@@ -172,19 +174,19 @@ namespace GameTracker
 
             }
         }
-
         private void SteamGamesDataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
            this.urlVar = constructSteamUrl();                
             selectedItemForm form = new selectedItemForm(this);
             form.Show();
         }
-
         private void igDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             this.urlVar = constructIgUrl();
             selectedItemForm form = new selectedItemForm(this);
             form.Show();
         }
+        
     }
+   
 }

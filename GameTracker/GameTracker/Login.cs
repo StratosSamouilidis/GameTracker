@@ -12,28 +12,41 @@ namespace GameTracker
 {
     public partial class Login : Form
     {
+
+        public string username;
         public Login()
         {
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void loginButton_Click(object sender, EventArgs e)
         {
+            LoadResults lr = new LoadResults(this);
 
+             this.username = userNameTextBox.Text;
+            string password = passWordTextBox.Text;
+           int Content=(int)userTableAdapter1.checkLogin(username, password);
+            
+            
+            if (Content==1) {
+                loginButton.Text = "Login succesful";
+               
+                lr.Show();
+                this.Hide();
+
+            }
+            else
+            {
+               errorLabel.Text = "Something went wrong";
+            }
+            
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void registerBtn_Click(object sender, EventArgs e)
         {
-            Application.Exit();
-        }
-
-
-
-
-
-        private void Login_Load(object sender, EventArgs e)
-        {
-
+            registerForm rf = new registerForm();
+            rf.Show();
+            this.Hide();
         }
     }
 }

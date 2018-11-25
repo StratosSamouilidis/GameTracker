@@ -35,6 +35,7 @@
             this.pageSpinner = new System.Windows.Forms.NumericUpDown();
             this.LoadIGbtn = new System.Windows.Forms.Button();
             this.igDataGridView = new System.Windows.Forms.DataGridView();
+            this.welcomeLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.SteamGamesDataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pageSpinner)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.igDataGridView)).BeginInit();
@@ -101,12 +102,22 @@
             this.igDataGridView.TabIndex = 9;
             this.igDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.igDataGridView_CellDoubleClick);
             // 
+            // welcomeLabel
+            // 
+            this.welcomeLabel.AutoSize = true;
+            this.welcomeLabel.Location = new System.Drawing.Point(12, 149);
+            this.welcomeLabel.Name = "welcomeLabel";
+            this.welcomeLabel.Size = new System.Drawing.Size(35, 13);
+            this.welcomeLabel.TabIndex = 10;
+            this.welcomeLabel.Text = "label1";
+            // 
             // LoadResults
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(979, 566);
+            this.Controls.Add(this.welcomeLabel);
             this.Controls.Add(this.igDataGridView);
             this.Controls.Add(this.LoadIGbtn);
             this.Controls.Add(this.pageSpinner);
@@ -132,6 +143,7 @@
         private System.Windows.Forms.NumericUpDown pageSpinner;
         private System.Windows.Forms.Button LoadIGbtn;
         private System.Windows.Forms.DataGridView igDataGridView;
+        private System.Windows.Forms.Label welcomeLabel;
     }
 }
 

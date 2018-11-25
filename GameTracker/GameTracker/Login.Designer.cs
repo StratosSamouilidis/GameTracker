@@ -28,79 +28,95 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.UsernameLabel = new System.Windows.Forms.Label();
-            this.PasswordLabel = new System.Windows.Forms.Label();
-            this.ExitButton = new System.Windows.Forms.Button();
-            this.LoginButton = new System.Windows.Forms.Button();
+            this.loginButton = new System.Windows.Forms.Button();
+            this.uNameLabel = new System.Windows.Forms.Label();
+            this.passWordLabel = new System.Windows.Forms.Label();
+            this.userNameTextBox = new System.Windows.Forms.TextBox();
+            this.passWordTextBox = new System.Windows.Forms.TextBox();
+            this.userTableAdapter1 = new GameTracker.GameTracke_DatabaseDataSetTableAdapters.UserTableAdapter();
+            this.errorLabel = new System.Windows.Forms.Label();
+            this.registerBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox1
+            // loginButton
             // 
-            this.textBox1.Location = new System.Drawing.Point(280, 150);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 0;
+            this.loginButton.Location = new System.Drawing.Point(244, 210);
+            this.loginButton.Name = "loginButton";
+            this.loginButton.Size = new System.Drawing.Size(100, 23);
+            this.loginButton.TabIndex = 0;
+            this.loginButton.Text = "Login";
+            this.loginButton.UseVisualStyleBackColor = true;
+            this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
-            // textBox2
+            // uNameLabel
             // 
-            this.textBox2.Location = new System.Drawing.Point(280, 195);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 1;
+            this.uNameLabel.AutoSize = true;
+            this.uNameLabel.Location = new System.Drawing.Point(159, 137);
+            this.uNameLabel.Name = "uNameLabel";
+            this.uNameLabel.Size = new System.Drawing.Size(55, 13);
+            this.uNameLabel.TabIndex = 1;
+            this.uNameLabel.Text = "Username";
             // 
-            // UsernameLabel
+            // passWordLabel
             // 
-            this.UsernameLabel.AutoSize = true;
-            this.UsernameLabel.Location = new System.Drawing.Point(148, 150);
-            this.UsernameLabel.Name = "UsernameLabel";
-            this.UsernameLabel.Size = new System.Drawing.Size(55, 13);
-            this.UsernameLabel.TabIndex = 2;
-            this.UsernameLabel.Text = "Username";
-            this.UsernameLabel.Click += new System.EventHandler(this.label1_Click);
+            this.passWordLabel.AutoSize = true;
+            this.passWordLabel.Location = new System.Drawing.Point(159, 172);
+            this.passWordLabel.Name = "passWordLabel";
+            this.passWordLabel.Size = new System.Drawing.Size(53, 13);
+            this.passWordLabel.TabIndex = 2;
+            this.passWordLabel.Text = "Password";
             // 
-            // PasswordLabel
+            // userNameTextBox
             // 
-            this.PasswordLabel.AutoSize = true;
-            this.PasswordLabel.Location = new System.Drawing.Point(151, 195);
-            this.PasswordLabel.Name = "PasswordLabel";
-            this.PasswordLabel.Size = new System.Drawing.Size(53, 13);
-            this.PasswordLabel.TabIndex = 3;
-            this.PasswordLabel.Text = "Password";
+            this.userNameTextBox.Location = new System.Drawing.Point(244, 137);
+            this.userNameTextBox.Name = "userNameTextBox";
+            this.userNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.userNameTextBox.TabIndex = 3;
             // 
-            // ExitButton
+            // passWordTextBox
             // 
-            this.ExitButton.Location = new System.Drawing.Point(683, 385);
-            this.ExitButton.Name = "ExitButton";
-            this.ExitButton.Size = new System.Drawing.Size(75, 23);
-            this.ExitButton.TabIndex = 4;
-            this.ExitButton.Text = "Exit";
-            this.ExitButton.UseVisualStyleBackColor = true;
-            this.ExitButton.Click += new System.EventHandler(this.button1_Click);
+            this.passWordTextBox.Location = new System.Drawing.Point(244, 172);
+            this.passWordTextBox.Name = "passWordTextBox";
+            this.passWordTextBox.Size = new System.Drawing.Size(100, 20);
+            this.passWordTextBox.TabIndex = 4;
             // 
-            // LoginButton
+            // userTableAdapter1
             // 
-            this.LoginButton.Location = new System.Drawing.Point(154, 241);
-            this.LoginButton.Name = "LoginButton";
-            this.LoginButton.Size = new System.Drawing.Size(75, 23);
-            this.LoginButton.TabIndex = 5;
-            this.LoginButton.Text = "Login";
-            this.LoginButton.UseVisualStyleBackColor = true;
+            this.userTableAdapter1.ClearBeforeFill = true;
+            // 
+            // errorLabel
+            // 
+            this.errorLabel.AutoSize = true;
+            this.errorLabel.Location = new System.Drawing.Point(241, 265);
+            this.errorLabel.Name = "errorLabel";
+            this.errorLabel.Size = new System.Drawing.Size(35, 13);
+            this.errorLabel.TabIndex = 5;
+            this.errorLabel.Text = "label1";
+            // 
+            // registerBtn
+            // 
+            this.registerBtn.Location = new System.Drawing.Point(372, 210);
+            this.registerBtn.Name = "registerBtn";
+            this.registerBtn.Size = new System.Drawing.Size(94, 23);
+            this.registerBtn.TabIndex = 6;
+            this.registerBtn.Text = "register";
+            this.registerBtn.UseVisualStyleBackColor = true;
+            this.registerBtn.Click += new System.EventHandler(this.registerBtn_Click);
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.LoginButton);
-            this.Controls.Add(this.ExitButton);
-            this.Controls.Add(this.PasswordLabel);
-            this.Controls.Add(this.UsernameLabel);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.registerBtn);
+            this.Controls.Add(this.errorLabel);
+            this.Controls.Add(this.passWordTextBox);
+            this.Controls.Add(this.userNameTextBox);
+            this.Controls.Add(this.passWordLabel);
+            this.Controls.Add(this.uNameLabel);
+            this.Controls.Add(this.loginButton);
             this.Name = "Login";
-            this.Text = "Login";
+            this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -108,11 +124,13 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label UsernameLabel;
-        private System.Windows.Forms.Label PasswordLabel;
-        private System.Windows.Forms.Button ExitButton;
-        private System.Windows.Forms.Button LoginButton;
+        private System.Windows.Forms.Button loginButton;
+        private System.Windows.Forms.Label uNameLabel;
+        private System.Windows.Forms.Label passWordLabel;
+        private System.Windows.Forms.TextBox userNameTextBox;
+        private System.Windows.Forms.TextBox passWordTextBox;
+        private GameTracke_DatabaseDataSetTableAdapters.UserTableAdapter userTableAdapter1;
+        private System.Windows.Forms.Label errorLabel;
+        private System.Windows.Forms.Button registerBtn;
     }
 }

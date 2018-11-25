@@ -49,6 +49,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GameTracke_DatabaseDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GameTracke_DatabaseDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="registerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="registerForm.Designer.cs">
+      <DependentUpon>registerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="selectedItemForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,6 +80,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="registerForm.resx">
+      <DependentUpon>registerForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="selectedItemForm.resx">
       <DependentUpon>selectedItemForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -78,6 +101,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="GameTracke_DatabaseDataSet.xsc">
+      <DependentUpon>GameTracke_DatabaseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="GameTracke_DatabaseDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GameTracke_DatabaseDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GameTracke_DatabaseDataSet.xss">
+      <DependentUpon>GameTracke_DatabaseDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -91,6 +125,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="GameTracke Database.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
