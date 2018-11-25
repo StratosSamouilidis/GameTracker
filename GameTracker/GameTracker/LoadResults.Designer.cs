@@ -36,6 +36,7 @@
             this.LoadIGbtn = new System.Windows.Forms.Button();
             this.igDataGridView = new System.Windows.Forms.DataGridView();
             this.welcomeLabel = new System.Windows.Forms.Label();
+            this.GoToPreferencesButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.SteamGamesDataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pageSpinner)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.igDataGridView)).BeginInit();
@@ -111,12 +112,23 @@
             this.welcomeLabel.TabIndex = 10;
             this.welcomeLabel.Text = "label1";
             // 
+            // GoToPreferencesButton
+            // 
+            this.GoToPreferencesButton.Location = new System.Drawing.Point(791, 463);
+            this.GoToPreferencesButton.Name = "GoToPreferencesButton";
+            this.GoToPreferencesButton.Size = new System.Drawing.Size(118, 40);
+            this.GoToPreferencesButton.TabIndex = 11;
+            this.GoToPreferencesButton.Text = "GoToPreferences";
+            this.GoToPreferencesButton.UseVisualStyleBackColor = true;
+            this.GoToPreferencesButton.Click += new System.EventHandler(this.GoToPreferencesButton_Click);
+            // 
             // LoadResults
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(979, 566);
+            this.Controls.Add(this.GoToPreferencesButton);
             this.Controls.Add(this.welcomeLabel);
             this.Controls.Add(this.igDataGridView);
             this.Controls.Add(this.LoadIGbtn);
@@ -144,6 +156,7 @@
         private System.Windows.Forms.Button LoadIGbtn;
         private System.Windows.Forms.DataGridView igDataGridView;
         private System.Windows.Forms.Label welcomeLabel;
+        private System.Windows.Forms.Button GoToPreferencesButton;
     }
 }
 

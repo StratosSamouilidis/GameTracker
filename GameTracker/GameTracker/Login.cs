@@ -21,19 +21,21 @@ namespace GameTracker
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            
+           
 
              this.username = userNameTextBox.Text;
             string password = passWordTextBox.Text;
            int Content=(int)userTableAdapter1.checkLogin(username, password);
             LoadResults lr = new LoadResults(this);
 
-
             if (Content==1) {
                 loginButton.Text = "Login succesful";
                
                 lr.Show();
                 this.Hide();
+
+                Preferences pref = new Preferences();
+                pref.Show();
 
             }
             else
@@ -48,6 +50,11 @@ namespace GameTracker
             registerForm rf = new registerForm();
             rf.Show();
             this.Hide();
+        }
+
+        private void ExitButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

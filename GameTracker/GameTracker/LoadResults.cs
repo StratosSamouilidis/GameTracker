@@ -186,7 +186,12 @@ namespace GameTracker
             selectedItemForm form = new selectedItemForm(this);
             form.Show();
         }
-        
+
+        private void GoToPreferencesButton_Click(object sender, EventArgs e)
+        {
+            Preferences pref = new Preferences();
+            pref.Show();
+        }
     }
    
 }
