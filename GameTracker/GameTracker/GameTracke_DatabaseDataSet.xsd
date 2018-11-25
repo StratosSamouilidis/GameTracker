@@ -27,7 +27,7 @@
                   </DbCommand>
                 </InsertCommand>
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT Games FROM Type_of_games</CommandText>
                     <Parameters />
                   </DbCommand>
@@ -237,7 +237,7 @@ WHERE        (UserName = ?) </CommandText>
   <xs:element name="GameTracke_DatabaseDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="GameTracke_DatabaseDataSet" msprop:Generator_UserDSName="GameTracke_DatabaseDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Type_of_games" msprop:Generator_TableClassName="Type_of_gamesDataTable" msprop:Generator_TableVarName="tableType_of_games" msprop:Generator_TablePropName="Type_of_games" msprop:Generator_RowDeletingName="Type_of_gamesRowDeleting" msprop:Generator_RowChangingName="Type_of_gamesRowChanging" msprop:Generator_RowEvHandlerName="Type_of_gamesRowChangeEventHandler" msprop:Generator_RowDeletedName="Type_of_gamesRowDeleted" msprop:Generator_UserTableName="Type_of_games" msprop:Generator_RowChangedName="Type_of_gamesRowChanged" msprop:Generator_RowEvArgName="Type_of_gamesRowChangeEvent" msprop:Generator_RowClassName="Type_of_gamesRow">
+        <xs:element name="Type_of_games" msprop:Generator_TableClassName="Type_of_gamesDataTable" msprop:Generator_TableVarName="tableType_of_games" msprop:Generator_RowChangedName="Type_of_gamesRowChanged" msprop:Generator_TablePropName="Type_of_games" msprop:Generator_RowDeletingName="Type_of_gamesRowDeleting" msprop:Generator_RowChangingName="Type_of_gamesRowChanging" msprop:Generator_RowEvHandlerName="Type_of_gamesRowChangeEventHandler" msprop:Generator_RowDeletedName="Type_of_gamesRowDeleted" msprop:Generator_RowClassName="Type_of_gamesRow" msprop:Generator_UserTableName="Type_of_games" msprop:Generator_RowEvArgName="Type_of_gamesRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Games" msprop:Generator_ColumnVarNameInTable="columnGames" msprop:Generator_ColumnPropNameInRow="Games" msprop:Generator_ColumnPropNameInTable="GamesColumn" msprop:Generator_UserColumnName="Games">
@@ -250,7 +250,7 @@ WHERE        (UserName = ?) </CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="User" msprop:Generator_TableClassName="UserDataTable" msprop:Generator_TableVarName="tableUser" msprop:Generator_TablePropName="User" msprop:Generator_RowDeletingName="UserRowDeleting" msprop:Generator_RowChangingName="UserRowChanging" msprop:Generator_RowEvHandlerName="UserRowChangeEventHandler" msprop:Generator_RowDeletedName="UserRowDeleted" msprop:Generator_UserTableName="User" msprop:Generator_RowChangedName="UserRowChanged" msprop:Generator_RowEvArgName="UserRowChangeEvent" msprop:Generator_RowClassName="UserRow">
+        <xs:element name="User" msprop:Generator_TableClassName="UserDataTable" msprop:Generator_TableVarName="tableUser" msprop:Generator_RowChangedName="UserRowChanged" msprop:Generator_TablePropName="User" msprop:Generator_RowDeletingName="UserRowDeleting" msprop:Generator_RowChangingName="UserRowChanging" msprop:Generator_RowEvHandlerName="UserRowChangeEventHandler" msprop:Generator_RowDeletedName="UserRowDeleted" msprop:Generator_RowClassName="UserRow" msprop:Generator_UserTableName="User" msprop:Generator_RowEvArgName="UserRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="UserName" msprop:Generator_ColumnVarNameInTable="columnUserName" msprop:Generator_ColumnPropNameInRow="UserName" msprop:Generator_ColumnPropNameInTable="UserNameColumn" msprop:Generator_UserColumnName="UserName">
@@ -270,7 +270,7 @@ WHERE        (UserName = ?) </CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="User_Type_of_games" msprop:Generator_TableClassName="User_Type_of_gamesDataTable" msprop:Generator_TableVarName="tableUser_Type_of_games" msprop:Generator_TablePropName="User_Type_of_games" msprop:Generator_RowDeletingName="User_Type_of_gamesRowDeleting" msprop:Generator_RowChangingName="User_Type_of_gamesRowChanging" msprop:Generator_RowEvHandlerName="User_Type_of_gamesRowChangeEventHandler" msprop:Generator_RowDeletedName="User_Type_of_gamesRowDeleted" msprop:Generator_UserTableName="User_Type_of_games" msprop:Generator_RowChangedName="User_Type_of_gamesRowChanged" msprop:Generator_RowEvArgName="User_Type_of_gamesRowChangeEvent" msprop:Generator_RowClassName="User_Type_of_gamesRow">
+        <xs:element name="User_Type_of_games" msprop:Generator_TableClassName="User_Type_of_gamesDataTable" msprop:Generator_TableVarName="tableUser_Type_of_games" msprop:Generator_RowChangedName="User_Type_of_gamesRowChanged" msprop:Generator_TablePropName="User_Type_of_games" msprop:Generator_RowDeletingName="User_Type_of_gamesRowDeleting" msprop:Generator_RowChangingName="User_Type_of_gamesRowChanging" msprop:Generator_RowEvHandlerName="User_Type_of_gamesRowChangeEventHandler" msprop:Generator_RowDeletedName="User_Type_of_gamesRowDeleted" msprop:Generator_RowClassName="User_Type_of_gamesRow" msprop:Generator_UserTableName="User_Type_of_games" msprop:Generator_RowEvArgName="User_Type_of_gamesRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="UserName" msprop:Generator_ColumnVarNameInTable="columnUserName" msprop:Generator_ColumnPropNameInRow="UserName" msprop:Generator_ColumnPropNameInTable="UserNameColumn" msprop:Generator_UserColumnName="UserName">
@@ -290,7 +290,7 @@ WHERE        (UserName = ?) </CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="WatchList" msprop:Generator_TableClassName="WatchListDataTable" msprop:Generator_TableVarName="tableWatchList" msprop:Generator_TablePropName="WatchList" msprop:Generator_RowDeletingName="WatchListRowDeleting" msprop:Generator_RowChangingName="WatchListRowChanging" msprop:Generator_RowEvHandlerName="WatchListRowChangeEventHandler" msprop:Generator_RowDeletedName="WatchListRowDeleted" msprop:Generator_UserTableName="WatchList" msprop:Generator_RowChangedName="WatchListRowChanged" msprop:Generator_RowEvArgName="WatchListRowChangeEvent" msprop:Generator_RowClassName="WatchListRow">
+        <xs:element name="WatchList" msprop:Generator_TableClassName="WatchListDataTable" msprop:Generator_TableVarName="tableWatchList" msprop:Generator_RowChangedName="WatchListRowChanged" msprop:Generator_TablePropName="WatchList" msprop:Generator_RowDeletingName="WatchListRowDeleting" msprop:Generator_RowChangingName="WatchListRowChanging" msprop:Generator_RowEvHandlerName="WatchListRowChangeEventHandler" msprop:Generator_RowDeletedName="WatchListRowDeleted" msprop:Generator_RowClassName="WatchListRow" msprop:Generator_UserTableName="WatchList" msprop:Generator_RowEvArgName="WatchListRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="GameTitle" msprop:Generator_ColumnVarNameInTable="columnGameTitle" msprop:Generator_ColumnPropNameInRow="GameTitle" msprop:Generator_ColumnPropNameInTable="GameTitleColumn" msprop:Generator_UserColumnName="GameTitle" minOccurs="0">
@@ -331,9 +331,9 @@ WHERE        (UserName = ?) </CommandText>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="Type_of_gamesUser_Type_of_games" msdata:parent="Type_of_games" msdata:child="User_Type_of_games" msdata:parentkey="Games" msdata:childkey="GameType" msprop:Generator_UserChildTable="User_Type_of_games" msprop:Generator_ChildPropName="GetUser_Type_of_gamesRows" msprop:Generator_UserRelationName="Type_of_gamesUser_Type_of_games" msprop:Generator_ParentPropName="Type_of_gamesRow" msprop:Generator_RelationVarName="relationType_of_gamesUser_Type_of_games" msprop:Generator_UserParentTable="Type_of_games" />
-      <msdata:Relationship name="UserUser_Type_of_games" msdata:parent="User" msdata:child="User_Type_of_games" msdata:parentkey="UserName" msdata:childkey="UserName" msprop:Generator_UserChildTable="User_Type_of_games" msprop:Generator_ChildPropName="GetUser_Type_of_gamesRows" msprop:Generator_UserRelationName="UserUser_Type_of_games" msprop:Generator_ParentPropName="UserRow" msprop:Generator_RelationVarName="relationUserUser_Type_of_games" msprop:Generator_UserParentTable="User" />
-      <msdata:Relationship name="UserWatchList" msdata:parent="User" msdata:child="WatchList" msdata:parentkey="UserName" msdata:childkey="UserName" msprop:Generator_UserChildTable="WatchList" msprop:Generator_ChildPropName="GetWatchListRows" msprop:Generator_UserRelationName="UserWatchList" msprop:Generator_ParentPropName="UserRow" msprop:Generator_RelationVarName="relationUserWatchList" msprop:Generator_UserParentTable="User" />
+      <msdata:Relationship name="Type_of_gamesUser_Type_of_games" msdata:parent="Type_of_games" msdata:child="User_Type_of_games" msdata:parentkey="Games" msdata:childkey="GameType" msprop:Generator_UserChildTable="User_Type_of_games" msprop:Generator_ChildPropName="GetUser_Type_of_gamesRows" msprop:Generator_UserRelationName="Type_of_gamesUser_Type_of_games" msprop:Generator_RelationVarName="relationType_of_gamesUser_Type_of_games" msprop:Generator_UserParentTable="Type_of_games" msprop:Generator_ParentPropName="Type_of_gamesRow" />
+      <msdata:Relationship name="UserUser_Type_of_games" msdata:parent="User" msdata:child="User_Type_of_games" msdata:parentkey="UserName" msdata:childkey="UserName" msprop:Generator_UserChildTable="User_Type_of_games" msprop:Generator_ChildPropName="GetUser_Type_of_gamesRows" msprop:Generator_UserRelationName="UserUser_Type_of_games" msprop:Generator_RelationVarName="relationUserUser_Type_of_games" msprop:Generator_UserParentTable="User" msprop:Generator_ParentPropName="UserRow" />
+      <msdata:Relationship name="UserWatchList" msdata:parent="User" msdata:child="WatchList" msdata:parentkey="UserName" msdata:childkey="UserName" msprop:Generator_UserChildTable="WatchList" msprop:Generator_ChildPropName="GetWatchListRows" msprop:Generator_UserRelationName="UserWatchList" msprop:Generator_RelationVarName="relationUserWatchList" msprop:Generator_UserParentTable="User" msprop:Generator_ParentPropName="UserRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

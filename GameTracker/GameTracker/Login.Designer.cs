@@ -36,6 +36,7 @@
             this.userTableAdapter1 = new GameTracker.GameTracke_DatabaseDataSetTableAdapters.UserTableAdapter();
             this.errorLabel = new System.Windows.Forms.Label();
             this.registerBtn = new System.Windows.Forms.Button();
+            this.ExitButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // loginButton
@@ -103,11 +104,22 @@
             this.registerBtn.UseVisualStyleBackColor = true;
             this.registerBtn.Click += new System.EventHandler(this.registerBtn_Click);
             // 
+            // ExitButton
+            // 
+            this.ExitButton.Location = new System.Drawing.Point(606, 341);
+            this.ExitButton.Name = "ExitButton";
+            this.ExitButton.Size = new System.Drawing.Size(93, 40);
+            this.ExitButton.TabIndex = 7;
+            this.ExitButton.Text = "Exit";
+            this.ExitButton.UseVisualStyleBackColor = true;
+            this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.ExitButton);
             this.Controls.Add(this.registerBtn);
             this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.passWordTextBox);
@@ -132,5 +144,6 @@
         private GameTracke_DatabaseDataSetTableAdapters.UserTableAdapter userTableAdapter1;
         private System.Windows.Forms.Label errorLabel;
         private System.Windows.Forms.Button registerBtn;
+        private System.Windows.Forms.Button ExitButton;
     }
 }

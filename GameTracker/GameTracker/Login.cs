@@ -34,6 +34,9 @@ namespace GameTracker
                 lr.Show();
                 this.Hide();
 
+                Preferences pref = new Preferences();
+                pref.Show();
+
             }
             else
             {
@@ -47,6 +50,11 @@ namespace GameTracker
             registerForm rf = new registerForm();
             rf.Show();
             this.Hide();
+        }
+
+        private void ExitButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
