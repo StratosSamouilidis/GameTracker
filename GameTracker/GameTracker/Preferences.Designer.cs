@@ -31,11 +31,11 @@
             this.components = new System.ComponentModel.Container();
             this.preferencesDataGridView = new System.Windows.Forms.DataGridView();
             this.gamesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AddPref = new System.Windows.Forms.DataGridViewButtonColumn();
             this.typeofgamesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gameTracke_DatabaseDataSet1 = new GameTracker.GameTracke_DatabaseDataSet();
             this.type_of_gamesTableAdapter1 = new GameTracker.GameTracke_DatabaseDataSetTableAdapters.Type_of_gamesTableAdapter();
             this.gameTracke_DatabaseDataSet = new GameTracker.GameTracke_DatabaseDataSet();
-            this.AddPref = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.preferencesDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeofgamesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameTracke_DatabaseDataSet1)).BeginInit();
@@ -61,6 +61,12 @@
             this.gamesDataGridViewTextBoxColumn.HeaderText = "Games";
             this.gamesDataGridViewTextBoxColumn.Name = "gamesDataGridViewTextBoxColumn";
             // 
+            // AddPref
+            // 
+            this.AddPref.DataPropertyName = "Games";
+            this.AddPref.HeaderText = "Add";
+            this.AddPref.Name = "AddPref";
+            // 
             // typeofgamesBindingSource
             // 
             this.typeofgamesBindingSource.DataMember = "Type_of_games";
@@ -79,12 +85,6 @@
             // 
             this.gameTracke_DatabaseDataSet.DataSetName = "GameTracke_DatabaseDataSet";
             this.gameTracke_DatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // AddPref
-            // 
-            this.AddPref.DataPropertyName = "Games";
-            this.AddPref.HeaderText = "Add";
-            this.AddPref.Name = "AddPref";
             // 
             // Preferences
             // 
