@@ -110,17 +110,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="GameTracke_DatabaseDataSet.xsc">
-      <DependentUpon>GameTracke_DatabaseDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="GameTracke_DatabaseDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>GameTracke_DatabaseDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="GameTracke_DatabaseDataSet.xss">
-      <DependentUpon>GameTracke_DatabaseDataSet.xsd</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
