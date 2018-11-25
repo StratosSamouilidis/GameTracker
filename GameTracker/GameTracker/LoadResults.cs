@@ -24,7 +24,7 @@ namespace GameTracker
         {
             loginForm = incomingForm;
             InitializeComponent();
-
+            string unamevar = loginForm.username;
             welcomeLabel.Text ="Welcome Mr " + loginForm.username;
         }
        
