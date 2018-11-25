@@ -18,7 +18,7 @@ namespace GameTracker
     public partial class LoadResults : Form
     {
        public string urlVar;
-        Login loginForm = new Login();
+       Login loginForm = new Login();
         
         public LoadResults(Login incomingForm)
         {
@@ -189,9 +189,11 @@ namespace GameTracker
 
         private void GoToPreferencesButton_Click(object sender, EventArgs e)
         {
-            Preferences pref = new Preferences();
+            Preferences pref = new Preferences(loginForm);
             pref.Show();
-        }
+      
+    }
+    
     }
    
 }
