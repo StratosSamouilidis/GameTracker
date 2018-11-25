@@ -21,13 +21,13 @@ namespace GameTracker
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            LoadResults lr = new LoadResults(this);
+           
 
              this.username = userNameTextBox.Text;
             string password = passWordTextBox.Text;
            int Content=(int)userTableAdapter1.checkLogin(username, password);
-            
-            
+            LoadResults lr = new LoadResults(this);
+
             if (Content==1) {
                 loginButton.Text = "Login succesful";
                
